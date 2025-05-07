@@ -1,0 +1,143 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid #1e90ff; /* Màu xanh blue */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #1e90ff; /* Màu xanh blue */
+}
+
+.header > span {
+  color: #1e90ff;
+  opacity: 0.8;
+  font-size: 1.2rem;
+}
+
+.contact-info {
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  margin-bottom: 20px;
+}
+
+.contact-info a {
+  color: #1e90ff; /* Màu xanh blue */
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+}
+
+a[title] {
+  text-decoration: none;
+  color: #1e90ff; /* Màu xanh blue */
+  font-weight: bold;
+}
+
+.contact-info a:hover {
+  color: #0056b3; /* Màu xanh đậm hơn khi hover */
+  transition: color 0.3s ease;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #1e90ff; /* Màu xanh blue */
+  padding-bottom: 5px;
+  color: #1e90ff; /* Màu xanh blue */
+}
+
+.section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.section ul li {
+  margin: 10px 0;
+}
+
+.section ul li span {
+  display: inline-block;
+  width: 150px;
+  /* font-weight: bold; */
+}
+
+.section-education .full,
+.section-objective .full,
+.section-experience .full,
+.section-certificates .full,
+.section-skills .full,
+.section-languages .full,
+.section-projects .full {
+  flex: 1;
+  word-wrap: break-word;
+}
+
+.highlight {
+  color: #1e90ff; /* Màu xanh blue */
+}
+
+/* CSS cho section Projects */
+.section-projects .project-item {
+  margin-bottom: 20px;
+}
+
+.section-projects .project-item strong {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.section-projects .project-details {
+  padding-left: 20px;
+}
+
+.section-projects .project-details li {
+  /* list-style-type: "• "; */
+  text-align: justify;
+  margin: 10px 2px;
+  padding-left: 2px;
+}
+
+.section-projects .project-details a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.section-projects .project-details a:hover {
+  color: #0056b3;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  .section ul li span {
+    width: 100px;
+  }
+  .section-education .full,
+  .section-objective .full,
+  .section-experience .full,
+  .section-certificates .full,
+  .section-skills .full,
+  .section-languages .full,
+  .section-projects .full {
+    flex: 1;
+    word-wrap: break-word;
+  }
+  .section-projects .project-details {
+    padding-left: 10px;
+  }
+}
