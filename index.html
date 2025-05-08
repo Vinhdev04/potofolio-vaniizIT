@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Personal portfolio of Eliana Jade, showcasing skills and experience as a frontend web developer."
+      content="Personal portfolio of Phạm Công Vinh, showcasing skills and experience as a frontend web developer."
     />
     <link
       rel="shortcut icon"
@@ -18,387 +18,541 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      rel="stylesheet"
+    />
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
-  <body class="">
+  <body>
     <!-- Navbar -->
-    <nav class="py-3 navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg py-3 fixed-top shadow-sm">
       <div class="container">
-        <a class="navbar-brand text-pink" href="#">VaniizIT.</a>
+        <a class="navbar-brand fw-bold text-primary" href="#">VaniizIT.</a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div
-          class="collapse navbar-collapse justify-content-center"
-          id="navbarNav"
-        >
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="text-white nav-link text-dark" href="#home">Home</a>
+              <a class="nav-link" href="#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="text-white nav-link text-dark" href="#experience"
-                >Experience</a
-              >
+              <a class="nav-link" href="#experience">Experience</a>
             </li>
             <li class="nav-item">
-              <a class="text-white nav-link text-dark" href="#skill">Skill</a>
+              <a class="nav-link" href="#skill">Skill</a>
             </li>
             <li class="nav-item">
-              <a class="text-white nav-link text-dark" href="#project"
-                >Project</a
-              >
+              <a class="nav-link" href="#project">Project</a>
             </li>
             <li class="nav-item">
-              <a class="text-white nav-link text-dark" href="#contact"
-                >Contact
-              </a>
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center ms-auto">
+            <button id="darkModeToggle" class="btn btn-outline-secondary me-2">
+              <i class="fas fa-moon"></i>
+            </button>
+            <a href="cv.html" class="btn btn-outline-primary rounded-pill">
+              Download CV <i class="fas fa-download"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="main-content">
+      <!-- Home Section -->
+      <section
+        id="home"
+        class="py-5 text-center min-vh-100 d-flex align-items-center"
+      >
+        <div class="container" data-aos="fade-up">
+          <img
+            src="./assets/images/avt.jpg"
+            alt="Phạm Công Vinh"
+            class="mb-4 rounded-circle profile-img shadow"
+            width="150"
+            height="150"
+          />
+          <h1 class="mb-2 display-4 fw-bold">Hi, I'm Vinh</h1>
+          <p class="mb-4 h3 text-primary">Frontend Web Developer</p>
+          <p class="mb-5 lead mx-auto" style="max-width: 600px">
+            I'm a frontend developer from California, USA with 10 years of
+            experience in companies like Microsoft, Tesla, and Apple, crafting
+            user-friendly interfaces.
+          </p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="#contact" class="btn btn-primary rounded-pill px-4"
+              >Contact Me</a
+            >
+            <a
+              href="cv.html"
+              class="btn btn-outline-secondary rounded-pill px-4"
+            >
+              My CV <i class="fas fa-download"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-5">
+        <div class="container">
+          <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">About Me</h2>
+          <p
+            class="mb-5 text-center lead mx-auto"
+            data-aos="fade-up"
+            style="max-width: 700px"
+          >
+            I'm a passionate frontend developer focused on creating
+            user-friendly, visually appealing websites. With over a decade of
+            experience, I've delivered innovative solutions at leading tech
+            companies.
+          </p>
+          <h3 class="mb-4">Education</h3>
+          <ul class="timeline">
+            <li style="--accent-color: #41516c">
+              <div class="date">2022</div>
+              <div class="title">Title 1</div>
+              <div class="descr">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+                itaque hic quibusdam fugiat est numquam harum, accusamus
+                suscipit consequatur laboriosam!
+              </div>
+            </li>
+            <li style="--accent-color: #fbca3e">
+              <div class="date">2023</div>
+              <div class="title">Title 2</div>
+              <div class="descr">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos
+                adipisci nobis nostrum vero nihil veniam.
+              </div>
+            </li>
+            <li style="--accent-color: #e24a68">
+              <div class="date">2024</div>
+              <div class="title">Title 3</div>
+              <div class="descr">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+                minima consequuntur soluta placeat iure totam commodi
+                repellendus ea delectus, libero fugit quod reprehenderit, sequi
+                quo, et dolorum saepe nulla hic.
+              </div>
+            </li>
+            <li style="--accent-color: #1b5f8c">
+              <div class="date">2025</div>
+              <div class="title">Title 4</div>
+              <div class="descr">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Impedit, cumque.
+              </div>
+            </li>
+            <li style="--accent-color: #4cadad">
+              <div class="date">2026</div>
+              <div class="title">Title 5</div>
+              <div class="descr">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
+                non.
+              </div>
+            </li>
+          </ul>
+          <div class="credits text-center mt-4">
+            <a
+              target="_blank"
+              href="https://www.freepik.com/free-vector/infographic-template-with-yearly-info_1252895.htm"
+              class="text-muted"
+              >Inspired by Freepik</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">
+            Experience
+          </h2>
+          <ul class="timeline">
+            <li style="--accent-color: #41516c">
+              <div class="date">2018-2021</div>
+              <div class="title">Frontend Developer - Microsoft</div>
+              <div class="descr">
+                Developed responsive web interfaces for Azure cloud services
+                using React and TypeScript. Collaborated with UX designers to
+                enhance user experience and accessibility.
+              </div>
+            </li>
+            <li style="--accent-color: #fbca3e">
+              <div class="date">2021-2023</div>
+              <div class="title">Senior Frontend Engineer - Tesla</div>
+              <div class="descr">
+                Led the development of Tesla's customer dashboard, optimizing
+                performance with modern JavaScript frameworks. Implemented
+                real-time data visualizations for vehicle telemetry.
+              </div>
+            </li>
+            <li style="--accent-color: #e24a68">
+              <div class="date">2023-2025</div>
+              <div class="title">Lead Frontend Developer - Apple</div>
+              <div class="descr">
+                Spearheaded the redesign of Apple's developer portal, focusing
+                on seamless navigation and cross-device compatibility. Mentored
+                junior developers and enforced best practices in code quality.
+              </div>
             </li>
           </ul>
         </div>
-        <a href="cv.html" class="btn btn-outline-light rounded-pill"
-          >Download CV <span>→</span></a
-        >
-      </div>
-    </nav>
+      </section>
 
-    <!-- Home Section -->
-    <section
-      id="home"
-      class="py-5 text-center min-vh-100 d-flex align-items-center"
-    >
-      <div class="container" data-aos="fade-up">
-        <img
-          src="./assets/images/avt.jpg"
-          alt="Eliana Jade"
-          class="mb-4 rounded-circle profile-img"
-        />
-        <h1 class="mb-2 display-4">Hi I'm Vinh</h1>
-        <p class="mb-4 h3">Frontend Web Developer</p>
-        <p class="mb-5 lead">
-          I am a frontend developer from California, USA with 10 years of
-          experience in multiple companies like Microsoft, Tesla and Apple.
-        </p>
-        <div>
-          <a href="#contact" class="btn btn-custom-pink me-3">contact me</a>
-          <a href="cv.html" class="btn btn-outline-light rounded-pill"
-            >My CV<span>↓</span></a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5">
-      <div class="container">
-        <h2 class="mb-5 text-center" data-aos="fade-up">About Me</h2>
-        <p class="mb-5 text-center lead" data-aos="fade-up">
-          I am a passionate frontend developer with a strong focus on creating
-          user-friendly and visually appealing websites. With over a decade of
-          experience, I have worked with leading tech companies to deliver
-          innovative solutions.
-        </p>
-        <h1>Education</h1>
-        <ul>
-          <li style="--accent-color: #41516c">
-            <div class="date">2022</div>
-            <div class="title">Title 1</div>
-            <div class="descr">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
-              itaque hic quibusdam fugiat est numquam harum, accusamus suscipit
-              consequatur laboriosam!
-            </div>
-          </li>
-          <li style="--accent-color: #fbca3e">
-            <div class="date">2023</div>
-            <div class="title">Title 2</div>
-            <div class="descr">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos
-              adipisci nobis nostrum vero nihil veniam.
-            </div>
-          </li>
-          <li style="--accent-color: #e24a68">
-            <div class="date">2024</div>
-            <div class="title">Title 3</div>
-            <div class="descr">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-              minima consequuntur soluta placeat iure totam commodi repellendus
-              ea delectus, libero fugit quod reprehenderit, sequi quo, et
-              dolorum saepe nulla hic.
-            </div>
-          </li>
-          <li style="--accent-color: #1b5f8c">
-            <div class="date">2025</div>
-            <div class="title">Title 4</div>
-            <div class="descr">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit,
-              cumque.
-            </div>
-          </li>
-          <li style="--accent-color: #4cadad">
-            <div class="date">2026</div>
-            <div class="title">Title 5</div>
-            <div class="descr">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit,
-              non.
-            </div>
-          </li>
-        </ul>
-        <div class="credits">
-          <a
-            target="_blank"
-            href="https://www.freepik.com/free-vector/infographic-template-with-yearly-info_1252895.htm"
-            >inspired by</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-5 bg-light text-dark">
-      <div class="container">
-        <h2 class="mb-5 text-center" data-aos="fade-up">Services</h2>
-        <div class="row">
-          <div class="mb-4 col-md-4" data-aos="zoom-in">
-            <div class="p-4 text-center card h-100">
-              <h4>Web Development</h4>
-              <p>
-                Building responsive and modern websites using HTML, CSS, and
-                JavaScript.
-              </p>
-            </div>
-          </div>
-          <div class="mb-4 col-md-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="p-4 text-center card h-100">
-              <h4>UI/UX Design</h4>
-              <p>
-                Creating intuitive and engaging user interfaces with a focus on
-                user experience.
-              </p>
-            </div>
-          </div>
-          <div class="mb-4 col-md-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="p-4 text-center card h-100">
-              <h4>Maintenance</h4>
-              <p>
-                Providing ongoing support and updates for existing web
-                applications.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work" class="py-5">
-      <div class="container">
-        <h2 class="mb-5 text-center" data-aos="fade-up">My Work</h2>
-        <div class="row">
-          <div class="mb-4 col-md-4" data-aos="zoom-in">
-            <div class="card project-card">
-              <img
-                src="https://images.unsplash.com/photo-1516321310764-0f0f9b43a4bf?q=80&w=300&h=200&fit=crop"
-                class="card-img-top"
-                alt="Project 1"
-              />
-              <div class="text-center card-body">
-                <h5 class="card-title">E-commerce Platform</h5>
-                <p class="card-text">
-                  A responsive e-commerce site with payment integration.
-                </p>
-                <a href="#" class="btn btn-outline-light">View Project</a>
+      <!-- Skill Section -->
+      <section id="skill" class="py-5">
+        <div class="container">
+          <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">Skills</h2>
+          <div class="row g-4">
+            <div class="col-md-4 col-lg-3" data-aos="zoom-in">
+              <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                <i class="fa-brands fa-html5 fa-3x text-primary mb-3"></i>
+                <h5 class="fw-bold">HTML5</h5>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    style="width: 95%"
+                    aria-valuenow="95"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="mb-4 col-md-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="card project-card">
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-1b6a43546f91?q=80&w=300&h=200&fit=crop"
-                class="card-img-top"
-                alt="Project 2"
-              />
-              <div class="text-center card-body">
-                <h5 class="card-title">Portfolio Site</h5>
-                <p class="card-text">
-                  A customizable portfolio template for developers.
-                </p>
-                <a href="#" class="btn btn-outline-light">View Project</a>
+            <div
+              class="col-md-4 col-lg-3"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                <i class="fa-brands fa-css3-alt fa-3x text-primary mb-3"></i>
+                <h5 class="fw-bold">CSS3</h5>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    style="width: 90%"
+                    aria-valuenow="90"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="mb-4 col-md-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="card project-card">
-              <img
-                src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=300&h=200&fit=crop"
-                class="card-img-top"
-                alt="Project 3"
-              />
-              <div class="text-center card-body">
-                <h5 class="card-title">Task Manager</h5>
-                <p class="card-text">
-                  A task management app with real-time updates.
-                </p>
-                <a href="#" class="btn btn-outline-light">View Project</a>
+            <div
+              class="col-md-4 col-lg-3"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                <i class="fa-brands fa-js fa-3x text-primary mb-3"></i>
+                <h5 class="fw-bold">JavaScript</h5>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    style="width: 85%"
+                    aria-valuenow="85"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-4 col-lg-3"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                <i class="fa-brands fa-react fa-3x text-primary mb-3"></i>
+                <h5 class="fw-bold">React</h5>
+                <div class="progress">
+                  <div
+                    class="progress-bar bg-primary"
+                    role="progressbar"
+                    style="width: 80%"
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Project Section -->
-    <section id="project" class="py-5">
-      <div class="container">
-        <h2 class="mb-5 text-center" data-aos="fade-up">My Projects</h2>
-        <div class="row">
-          <div class="mb-4 col-md-4" data-aos="zoom-in">
-            <div class="card project-card text-dark">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&h=200&fit=crop"
-                class="card-img-top"
-                alt="My Personal Website"
-              />
-              <div class="text-center card-body">
-                <h5 class="card-title">My Personal Website</h5>
-                <p class="card-text">
-                  A personal portfolio website built using HTML, CSS, and
-                  JavaScript. Showcases my projects and skills with a clean,
-                  responsive design for all devices.
+      <!-- Services Section -->
+      <section id="services" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">Services</h2>
+          <div class="row g-4">
+            <div class="col-md-4" data-aos="zoom-in">
+              <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                <i class="fas fa-code display-4 text-primary mb-3"></i>
+                <h4 class="fw-bold">Web Development</h4>
+                <p>
+                  Building responsive, modern websites using HTML, CSS, and
+                  JavaScript with a focus on performance and accessibility.
                 </p>
-                <a href="#" class="btn btn-primary">View Demo</a>
               </div>
             </div>
-          </div>
-          <div class="mb-4 col-md-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="card project-card text-dark">
-              <img
-                src="https://images.unsplash.com/photo-1516321310764-0f0f9b43a4bf?q=80&w=300&h=200&fit=crop"
-                class="card-img-top"
-                alt="Todo List App"
-              />
-              <div class="text-center card-body">
-                <h5 class="card-title">Todo List App</h5>
-                <p class="card-text">
-                  This Todo List app is built with HTML, CSS, JavaScript. It
-                  allows users to add, edit, and delete tasks, providing a
-                  simple way to stay organized.
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+              <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                <i class="fas fa-paint-brush display-4 text-primary mb-3"></i>
+                <h4 class="fw-bold">UI/UX Design</h4>
+                <p>
+                  Creating intuitive, engaging user interfaces with a strong
+                  emphasis on user experience and visual appeal.
                 </p>
-                <a href="#" class="btn btn-primary">View Demo</a>
               </div>
             </div>
-          </div>
-          <div class="mb-4 col-md-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="card project-card text-dark">
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-1b6a43546f91?q=80&w=300&h=200&fit=crop"
-                class="card-img-top"
-                alt="Weather App"
-              />
-              <div class="text-center card-body">
-                <h5 class="card-title">Weather App</h5>
-                <p class="card-text">
-                  A weather app built with HTML, CSS, and JavaScript. It fetches
-                  live weather data from an API to provide up-to-date
-                  information on weather conditions.
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+              <div class="card h-100 shadow-sm border-0 p-4 text-center">
+                <i class="fas fa-tools display-4 text-primary mb-3"></i>
+                <h4 class="fw-bold">Maintenance</h4>
+                <p>
+                  Providing ongoing support, updates, and optimization for
+                  existing web applications to ensure peak performance.
                 </p>
-                <a href="#" class="btn btn-primary">View Demo</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light text-dark">
-      <div class="container">
-        <h2 class="mb-5 text-center" data-aos="fade-up">Contact Me</h2>
-        <div class="row">
-          <div class="mx-auto col-md-6" data-aos="fade-up">
-            <form action="https://formspree.io/f/your-form-id" method="POST">
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  name="name"
-                  placeholder="Your Name"
-                  required
+      <!-- Work Section -->
+      <section id="work" class="py-5">
+        <div class="container">
+          <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">My Work</h2>
+          <div class="row g-4">
+            <div class="col-md-4" data-aos="zoom-in">
+              <div class="card project-card shadow-sm border-0 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1516321310764-0f0f9b43a4bf?q=80&w=300&h=200&fit=crop"
+                  class="card-img-top"
+                  alt="E-commerce Platform"
                 />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">E-commerce Platform</h5>
+                  <p class="card-text">
+                    A responsive e-commerce site with seamless payment
+                    integration and intuitive navigation.
+                  </p>
+                  <a href="#" class="btn btn-outline-primary rounded-pill"
+                    >View Project</a
+                  >
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  name="email"
-                  placeholder="Your Email"
-                  required
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+              <div class="card project-card shadow-sm border-0 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-1b6a43546f91?q=80&w=300&h=200&fit=crop"
+                  class="card-img-top"
+                  alt="Portfolio Site"
                 />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">Portfolio Site</h5>
+                  <p class="card-text">
+                    A customizable portfolio template designed for developers
+                    with a sleek, modern look.
+                  </p>
+                  <a href="#" class="btn btn-outline-primary rounded-pill"
+                    >View Project</a
+                  >
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea
-                  class="form-control"
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Your Message"
-                  required
-                ></textarea>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+              <div class="card project-card shadow-sm border-0 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=300&h=200&fit=crop"
+                  class="card-img-top"
+                  alt="Task Manager"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">Task Manager</h5>
+                  <p class="card-text">
+                    A task management app with real-time updates and
+                    cross-device synchronization.
+                  </p>
+                  <a href="#" class="btn btn-outline-primary rounded-pill"
+                    >View Project</a
+                  >
+                </div>
               </div>
-              <button type="submit" class="btn btn-custom-pink w-100">
-                Send Message
-              </button>
-            </form>
+            </div>
           </div>
         </div>
-        <div class="mt-4 text-center" data-aos="fade-up" data-aos-delay="100">
-          <a
-            href="https://github.com/elianajade"
-            class="mx-2 btn btn-outline-dark"
-            >GitHub</a
-          >
-          <a
-            href="https://linkedin.com/in/elianajade"
-            class="mx-2 btn btn-outline-dark"
-            >LinkedIn</a
-          >
-          <a
-            href="mailto:eliana.jade@example.com"
-            class="mx-2 btn btn-outline-dark"
-            >Email</a
-          >
-        </div>
-      </div>
-    </section>
+      </section>
 
+      <!-- Project Section -->
+      <section id="project" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">
+            My Projects
+          </h2>
+          <div class="row g-4">
+            <div class="col-md-4" data-aos="zoom-in">
+              <div class="card project-card shadow-sm border-0 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&h=200&fit=crop"
+                  class="card-img-top"
+                  alt="My Personal Website"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">My Personal Website</h5>
+                  <p class="card-text">
+                    A personal portfolio website built with HTML, CSS, and
+                    JavaScript, featuring a clean, responsive design.
+                  </p>
+                  <a href="#" class="btn btn-primary rounded-pill">View Demo</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+              <div class="card project-card shadow-sm border-0 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1516321310764-0f0f9b43a4bf?q=80&w=300&h=200&fit=crop"
+                  class="card-img-top"
+                  alt="Todo List App"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">Todo List App</h5>
+                  <p class="card-text">
+                    A Todo List app built with HTML, CSS, and JavaScript,
+                    allowing users to manage tasks efficiently.
+                  </p>
+                  <a href="#" class="btn btn-primary rounded-pill">View Demo</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+              <div class="card project-card shadow-sm border-0 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-1b6a43546f91?q=80&w=300&h=200&fit=crop"
+                  class="card-img-top"
+                  alt="Weather App"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">Weather App</h5>
+                  <p class="card-text">
+                    A weather app built with HTML, CSS, and JavaScript, fetching
+                    live data from an API for real-time updates.
+                  </p>
+                  <a href="#" class="btn btn-primary rounded-pill">View Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-5">
+        <div class="container">
+          <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">
+            Contact Me
+          </h2>
+          <div class="row">
+            <div class="col-md-6 mx-auto" data-aos="fade-up">
+              <form action="https://formspree.io/f/your-form-id" method="POST">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100 rounded-pill"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="mt-4 text-center" data-aos="fade-up" data-aos-delay="100">
+            <a
+              href="https://github.com/elianajade"
+              class="btn btn-outline-secondary mx-2 rounded-pill"
+              ><i class="fab fa-github"></i> GitHub</a
+            >
+            <a
+              href="https://linkedin.com/in/elianajade"
+              class="btn btn-outline-secondary mx-2 rounded-pill"
+              ><i class="fab fa-linkedin"></i> LinkedIn</a
+            >
+            <a
+              href="mailto:eliana.jade@example.com"
+              class="btn btn-outline-secondary mx-2 rounded-pill"
+              ><i class="fas fa-envelope"></i> Email</a
+            >
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="btn btn-primary rounded-circle shadow">
+      <i class="fas fa-arrow-up"></i>
+    </button>
     <!-- Footer -->
-    <footer class="py-3 text-center text-white bg-dark">
-      <p>© 2025 Eliana Jade. All Rights Reserved.</p>
+    <footer class="text-center bg-dark text-white">
+      <p class="mb-0 py-3">© 2025 Phạm Công Vinh. All Rights Reserved.</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="btn btn-outline-light">↑</button>
-
     <!-- Bootstrap JS -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
     <script src="./assets/js/main.js"></script>
-   
   </body>
 </html>
