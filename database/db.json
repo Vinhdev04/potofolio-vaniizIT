@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "pcv.fed@gmail.com"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Project 1",
+      "description": "Description of Project 1",
+      "images": [
+        {
+          "id": 1,
+          "url": "https://example.com/image1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/image2.jpg"
+        }
+      ],
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "name": "Project 2",
+      "description": "Description of Project 2",
+      "images": [
+        {
+          "id": 1,
+          "url": "https://example.com/image1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "https://example.com/image2.jpg"
+        }
+      ],
+      "userId": 1
+    }
+  ]
+}

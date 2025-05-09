@@ -30,7 +30,7 @@
   <body>
     <!-- Navbar -->
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg py-3 fixed-top shadow-sm bg-white">
+    <nav class="py-3 bg-white shadow-sm navbar navbar-expand-lg fixed-top">
       <div class="container">
         <a class="navbar-brand fw-bold text-primary" href="#">VaniizIT.</a>
         <button
@@ -46,20 +46,20 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item mb-0">
+          <ul class="mx-auto mb-2 navbar-nav mb-lg-0">
+            <li class="mb-0 nav-item">
               <a class="nav-link" href="#home">Home</a>
             </li>
-            <li class="nav-item mb-0">
+            <li class="mb-0 nav-item">
               <a class="nav-link" href="#experience">Experience</a>
             </li>
-            <li class="nav-item mb-0">
+            <li class="mb-0 nav-item">
               <a class="nav-link" href="#skill">Skill</a>
             </li>
-            <li class="nav-item mb-0">
+            <li class="mb-0 nav-item">
               <a class="nav-link" href="#project">Project</a>
             </li>
-            <li class="nav-item mb-0">
+            <li class="mb-0 nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
           </ul>
@@ -68,7 +68,10 @@
             <button id="darkModeToggle" class="btn btn-outline-secondary me-2">
               <i class="fas fa-moon"></i>
             </button>
-            <a href="cv.html" class="btn btn-outline-primary rounded-pill">
+            <a
+              href="./assets/CV.pdf"
+              class="btn btn-outline-primary rounded-pill"
+            >
               Download CV <i class="fas fa-download"></i>
             </a>
           </div>
@@ -86,26 +89,26 @@
           <img
             src="./assets/images/avt.jpg"
             alt="Phạm Công Vinh"
-            class="mb-4 rounded-circle profile-img shadow"
+            class="mb-4 shadow rounded-circle profile-img"
             width="150"
             height="150"
           />
           <h1 class="mb-2 display-4 fw-bold">Hi, I'm Vinh</h1>
           <p class="mb-4 h3 text-primary">Frontend Web Developer</p>
-          <p class="mb-5 lead mx-auto" style="max-width: 600px">
+          <p class="mx-auto mb-5 lead" style="max-width: 600px">
             I'm a frontend developer from California, USA with 10 years of
             experience in companies like Microsoft, Tesla, and Apple, crafting
             user-friendly interfaces.
           </p>
-          <div class="d-flex justify-content-center gap-3">
-            <a href="#contact" class="btn btn-primary rounded-pill px-4"
+          <div class="gap-3 d-flex justify-content-center">
+            <a href="#contact" class="px-4 btn btn-primary rounded-pill"
               >Contact Me</a
             >
             <a
               href="cv.html"
-              class="btn btn-outline-secondary rounded-pill px-4"
+              class="px-4 btn btn-outline-secondary rounded-pill"
             >
-              My CV <i class="fas fa-download"></i>
+              My CV <i class="fa-solid fa-eye"></i>
             </a>
           </div>
         </div>
@@ -116,7 +119,7 @@
         <div class="container">
           <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">About Me</h2>
           <p
-            class="mb-5 text-center lead mx-auto"
+            class="mx-auto mb-5 text-center lead"
             data-aos="fade-up"
             style="max-width: 700px"
           >
@@ -171,7 +174,7 @@
               </div>
             </li>
           </ul>
-          <div class="credits text-center mt-4">
+          <div class="mt-4 text-center credits">
             <a
               target="_blank"
               href="https://www.freepik.com/free-vector/infographic-template-with-yearly-info_1252895.htm"
@@ -227,12 +230,12 @@
           <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">Skills</h2>
 
           <!-- Frontend -->
-          <h4 class="fw-bold mb-3" data-aos="fade-right">Frontend</h4>
-          <div class="row g-4 mb-5">
+          <h4 class="mb-3 fw-bold" data-aos="fade-right">Frontend</h4>
+          <div class="mb-5 row g-4">
             <!-- HTML -->
             <div class="col-md-3" data-aos="zoom-in">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-brands fa-html5 fa-3x text-danger mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-brands fa-html5 fa-3x text-danger"></i>
                 <h5 class="fw-bold">HTML5</h5>
                 <div class="progress">
                   <div class="progress-bar bg-danger" style="width: 95%"></div>
@@ -241,8 +244,8 @@
             </div>
             <!-- CSS -->
             <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-brands fa-css3-alt fa-3x text-info mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-brands fa-css3-alt fa-3x text-info"></i>
                 <h5 class="fw-bold">CSS3</h5>
                 <div class="progress">
                   <div class="progress-bar bg-info" style="width: 90%"></div>
@@ -251,8 +254,8 @@
             </div>
             <!-- JavaScript -->
             <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-brands fa-js fa-3x text-warning mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-brands fa-js fa-3x text-warning"></i>
                 <h5 class="fw-bold">JavaScript</h5>
                 <div class="progress">
                   <div class="progress-bar bg-warning" style="width: 85%"></div>
@@ -261,8 +264,8 @@
             </div>
             <!-- React -->
             <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-brands fa-react fa-3x text-primary mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-brands fa-react fa-3x text-primary"></i>
                 <h5 class="fw-bold">ReactJS</h5>
                 <div class="progress">
                   <div class="progress-bar bg-primary" style="width: 80%"></div>
@@ -272,11 +275,11 @@
           </div>
 
           <!-- Backend -->
-          <h4 class="fw-bold mb-3" data-aos="fade-right">Backend</h4>
-          <div class="row g-4 mb-5">
+          <h4 class="mb-3 fw-bold" data-aos="fade-right">Backend</h4>
+          <div class="mb-5 row g-4">
             <div class="col-md-3" data-aos="zoom-in">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-brands fa-node fa-3x text-success mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-brands fa-node fa-3x text-success"></i>
                 <h5 class="fw-bold">NodeJS</h5>
                 <div class="progress">
                   <div class="progress-bar bg-success" style="width: 80%"></div>
@@ -284,8 +287,8 @@
               </div>
             </div>
             <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-solid fa-database fa-3x text-secondary mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-solid fa-database fa-3x text-secondary"></i>
                 <h5 class="fw-bold">MongoDB</h5>
                 <div class="progress">
                   <div
@@ -298,11 +301,11 @@
           </div>
 
           <!-- UI Frameworks -->
-          <h4 class="fw-bold mb-3" data-aos="fade-right">UI Frameworks</h4>
-          <div class="row g-4 mb-5">
+          <h4 class="mb-3 fw-bold" data-aos="fade-right">UI Frameworks</h4>
+          <div class="mb-5 row g-4">
             <div class="col-md-3" data-aos="zoom-in">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-solid fa-wind fa-3x text-info mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-solid fa-wind fa-3x text-info"></i>
                 <h5 class="fw-bold">Tailwind CSS</h5>
                 <div class="progress">
                   <div class="progress-bar bg-info" style="width: 90%"></div>
@@ -310,8 +313,8 @@
               </div>
             </div>
             <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-brands fa-bootstrap fa-3x text-purple mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-brands fa-bootstrap fa-3x text-purple"></i>
                 <h5 class="fw-bold">Bootstrap</h5>
                 <div class="progress">
                   <div class="progress-bar bg-primary" style="width: 90%"></div>
@@ -319,8 +322,8 @@
               </div>
             </div>
             <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-solid fa-layer-group fa-3x text-dark mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-solid fa-layer-group fa-3x text-dark"></i>
                 <h5 class="fw-bold">Ant Design</h5>
                 <div class="progress">
                   <div class="progress-bar bg-dark" style="width: 85%"></div>
@@ -328,8 +331,8 @@
               </div>
             </div>
             <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-brands fa-sass fa-3x text-pink mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-brands fa-sass fa-3x text-pink"></i>
                 <h5 class="fw-bold">Sass/Scss</h5>
                 <div class="progress">
                   <div class="progress-bar bg-pink" style="width: 85%"></div>
@@ -339,11 +342,11 @@
           </div>
 
           <!-- Design Tools -->
-          <h4 class="fw-bold mb-3" data-aos="fade-right">Design</h4>
+          <h4 class="mb-3 fw-bold" data-aos="fade-right">Design</h4>
           <div class="row g-4">
             <div class="col-md-3" data-aos="zoom-in">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-brands fa-figma fa-3x text-dark mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-brands fa-figma fa-3x text-dark"></i>
                 <h5 class="fw-bold">Figma</h5>
                 <div class="progress">
                   <div class="progress-bar bg-dark" style="width: 90%"></div>
@@ -351,8 +354,8 @@
               </div>
             </div>
             <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fa-solid fa-pen-nib fa-3x text-secondary mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fa-solid fa-pen-nib fa-3x text-secondary"></i>
                 <h5 class="fw-bold">Canva</h5>
                 <div class="progress">
                   <div
@@ -372,8 +375,8 @@
           <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">Services</h2>
           <div class="row g-4">
             <div class="col-md-4" data-aos="zoom-in">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fas fa-code display-4 text-primary mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fas fa-code display-4 text-primary"></i>
                 <h4 class="fw-bold">Web Development</h4>
                 <p>
                   Building responsive, modern websites using HTML, CSS, and
@@ -382,8 +385,8 @@
               </div>
             </div>
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fas fa-paint-brush display-4 text-primary mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fas fa-paint-brush display-4 text-primary"></i>
                 <h4 class="fw-bold">UI/UX Design</h4>
                 <p>
                   Creating intuitive, engaging user interfaces with a strong
@@ -392,8 +395,8 @@
               </div>
             </div>
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-              <div class="card h-100 shadow-sm border-0 p-4 text-center">
-                <i class="fas fa-tools display-4 text-primary mb-3"></i>
+              <div class="p-4 text-center border-0 shadow-sm card h-100">
+                <i class="mb-3 fas fa-tools display-4 text-primary"></i>
                 <h4 class="fw-bold">Maintenance</h4>
                 <p>
                   Providing ongoing support, updates, and optimization for
@@ -411,13 +414,13 @@
           <h2 class="mb-5 text-center fw-bold" data-aos="fade-up">My Work</h2>
           <div class="row g-4">
             <div class="col-md-4" data-aos="zoom-in">
-              <div class="card project-card shadow-sm border-0 overflow-hidden">
+              <div class="overflow-hidden border-0 shadow-sm card project-card">
                 <img
                   src="https://images.unsplash.com/photo-1516321310764-0f0f9b43a4bf?q=80&w=300&h=200&fit=crop"
                   class="card-img-top"
                   alt="E-commerce Platform"
                 />
-                <div class="card-body text-center">
+                <div class="text-center card-body">
                   <h5 class="card-title fw-bold">E-commerce Platform</h5>
                   <p class="card-text">
                     A responsive e-commerce site with seamless payment
@@ -430,13 +433,13 @@
               </div>
             </div>
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-              <div class="card project-card shadow-sm border-0 overflow-hidden">
+              <div class="overflow-hidden border-0 shadow-sm card project-card">
                 <img
                   src="https://images.unsplash.com/photo-1498050108023-1b6a43546f91?q=80&w=300&h=200&fit=crop"
                   class="card-img-top"
                   alt="Portfolio Site"
                 />
-                <div class="card-body text-center">
+                <div class="text-center card-body">
                   <h5 class="card-title fw-bold">Portfolio Site</h5>
                   <p class="card-text">
                     A customizable portfolio template designed for developers
@@ -449,13 +452,13 @@
               </div>
             </div>
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-              <div class="card project-card shadow-sm border-0 overflow-hidden">
+              <div class="overflow-hidden border-0 shadow-sm card project-card">
                 <img
                   src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=300&h=200&fit=crop"
                   class="card-img-top"
                   alt="Task Manager"
                 />
-                <div class="card-body text-center">
+                <div class="text-center card-body">
                   <h5 class="card-title fw-bold">Task Manager</h5>
                   <p class="card-text">
                     A task management app with real-time updates and
@@ -479,13 +482,13 @@
           </h2>
           <div class="row g-4">
             <div class="col-md-4" data-aos="zoom-in">
-              <div class="card project-card shadow-sm border-0 overflow-hidden">
+              <div class="overflow-hidden border-0 shadow-sm card project-card">
                 <img
                   src="./assets/images/potofolio.png"
                   class="card-img-top"
                   alt="My Personal Website"
                 />
-                <div class="card-body text-center">
+                <div class="text-center card-body">
                   <h5 class="card-title fw-bold">My Portofolio Website</h5>
                   <p class="card-text">
                     A personal portfolio website built with HTML, CSS, and
@@ -496,13 +499,13 @@
               </div>
             </div>
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-              <div class="card project-card shadow-sm border-0 overflow-hidden">
+              <div class="overflow-hidden border-0 shadow-sm card project-card">
                 <img
                   src="./assets/images/ecommerce-fashions.png"
                   class="card-img-top"
                   alt="Todo List App"
                 />
-                <div class="card-body text-center">
+                <div class="text-center card-body">
                   <h5 class="card-title fw-bold">Ecommerces Fashion</h5>
                   <p class="card-text">
                     A Todo List app built with HTML, CSS, and JavaScript,
@@ -513,13 +516,13 @@
               </div>
             </div>
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-              <div class="card project-card shadow-sm border-0 overflow-hidden">
+              <div class="overflow-hidden border-0 shadow-sm card project-card">
                 <img
                   src="./assets/images/landingpage-education.png"
                   class="card-img-top"
                   alt="Weather App"
                 />
-                <div class="card-body text-center">
+                <div class="text-center card-body">
                   <h5 class="card-title fw-bold">Landing Page Education</h5>
                   <p class="card-text">
                     A weather app built with HTML, CSS, and JavaScript, fetching
@@ -540,7 +543,7 @@
             Contact Me
           </h2>
           <div class="row">
-            <div class="col-md-6 mx-auto" data-aos="fade-up">
+            <div class="mx-auto col-md-6" data-aos="fade-up">
               <form action="https://formspree.io/f/your-form-id" method="POST">
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
@@ -587,22 +590,22 @@
           <div class="mt-4 text-center" data-aos="fade-up" data-aos-delay="100">
             <a
               href="https://github.com/Vinhdev04"
-              class="btn btn-outline-secondary mx-2 rounded-pill"
+              class="mx-2 btn btn-outline-secondary rounded-pill"
               ><i class="fab fa-github"></i> GitHub</a
             >
             <a
               href="https://www.facebook.com/i.padygamy1210"
-              class="btn btn-outline-secondary mx-2 rounded-pill"
+              class="mx-2 btn btn-outline-secondary rounded-pill"
               ><i class="fa-brands fa-facebook"></i>Facebook</a
             >
             <a
               href="https://www.facebook.com/i.padygamy1210"
-              class="btn btn-outline-secondary mx-2 rounded-pill"
+              class="mx-2 btn btn-outline-secondary rounded-pill"
               ><i class="fa-brands fa-instagram"></i> Instagram</a
             >
             <a
               href="mailto:vaniizit@gmail.com"
-              class="btn btn-outline-secondary mx-2 rounded-pill"
+              class="mx-2 btn btn-outline-secondary rounded-pill"
               ><i class="fas fa-envelope"></i> Email</a
             >
           </div>
@@ -610,12 +613,12 @@
       </section>
     </div>
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="btn btn-primary rounded-circle shadow">
+    <button id="back-to-top" class="shadow btn btn-primary rounded-circle">
       <i class="fas fa-arrow-up"></i>
     </button>
     <!-- Footer -->
-    <footer class="text-center bg-dark text-white">
-      <p class="mb-0 py-3">© 2025 Phạm Công Vinh. All Rights Reserved.</p>
+    <footer class="text-center text-white bg-dark">
+      <p class="py-3 mb-0">© 2025 Phạm Công Vinh. All Rights Reserved.</p>
     </footer>
 
     <!-- Bootstrap JS -->

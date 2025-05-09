@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Register for Phạm Công Vinh's portfolio website."
+      content="Login to Phạm Công Vinh's portfolio website."
     />
     <link
       rel="shortcut icon"
       href="./assets/images/logo.png"
       type="image/x-icon"
     />
-    <title>Register | Phạm Công Vinh</title>
+    <title>Login | Phạm Công Vinh</title>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -61,35 +61,24 @@
               <a class="nav-link" href="index.html#contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.html">Login</a>
+              <a class="nav-link active" href="login.html">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="register.html">Register</a>
+              <a class="nav-link" href="register.html">Register</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Register Section -->
+    <!-- Login Section -->
     <section class="py-5 min-vh-100 d-flex align-items-center">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <div class="p-4 border-0 shadow-sm card">
-              <h2 class="mb-4 text-center fw-bold">Register</h2>
-              <form action="#" method="POST">
-                <div class="mb-3">
-                  <label for="name" class="form-label">Full Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    name="name"
-                    placeholder="Your Full Name"
-                    required
-                  />
-                </div>
+              <h2 class="mb-4 text-center fw-bold">Login</h2>
+              <form id="loginForm" class="needs-validation" novalidate>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input
@@ -100,6 +89,9 @@
                     placeholder="Your Email"
                     required
                   />
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
@@ -109,33 +101,37 @@
                     id="password"
                     name="password"
                     placeholder="Your Password"
+                    minlength="6"
                     required
                   />
+                  <div class="invalid-feedback">
+                    Password must be at least 6 characters long.
+                  </div>
                 </div>
-                <div class="mb-3">
-                  <label for="confirmPassword" class="form-label"
-                    >Confirm Password</label
-                  >
+                <div class="mb-3 form-check">
                   <input
-                    type="password"
-                    class="form-control"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    required
+                    type="checkbox"
+                    class="form-check-input"
+                    id="rememberMe"
                   />
+                  <label class="form-check-label" for="rememberMe"
+                    >Remember Me</label
+                  >
                 </div>
                 <button
                   type="submit"
                   class="btn btn-primary w-100 rounded-pill"
                 >
-                  Register
+                  Login
                 </button>
               </form>
               <div class="mt-3 text-center">
+                <a href="#" class="text-muted">Forgot Password?</a>
+              </div>
+              <div class="mt-2 text-center">
                 <p>
-                  Already have an account?
-                  <a href="login.html" class="text-primary">Login</a>
+                  Don't have an account?
+                  <a href="register.html" class="text-primary">Register</a>
                 </p>
               </div>
             </div>
@@ -158,6 +154,54 @@
         duration: 1000,
         once: true,
       });
+
+      // Form validation
+      (function () {
+        "use strict";
+        const form = document.getElementById("loginForm");
+        form.addEventListener(
+          "submit",
+          function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (!form.checkValidity()) {
+              form.classList.add("was-validated");
+              return;
+            }
+
+            // Custom email validation
+            const email = form.querySelector("#email");
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value)) {
+              email.classList.add("is-invalid");
+              email.classList.remove("is-valid");
+              return;
+            } else {
+              email.classList.remove("is-invalid");
+              email.classList.add("is-valid");
+            }
+
+            // If valid, proceed with form submission (e.g., AJAX or redirect)
+            alert("Login successful! (Demo)");
+            // form.submit(); // Uncomment to submit to backend
+          },
+          false
+        );
+
+        // Real-time validation
+        form.querySelectorAll("input").forEach((input) => {
+          input.addEventListener("input", function () {
+            if (input.checkValidity()) {
+              input.classList.remove("is-invalid");
+              input.classList.add("is-valid");
+            } else {
+              input.classList.add("is-invalid");
+              input.classList.remove("is-valid");
+            }
+          });
+        });
+      })();
     </script>
   </body>
 </html>

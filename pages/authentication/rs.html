@@ -37,7 +37,8 @@
         >
         <button
           class="navbar-toggler"
-          type="button"
+          type
+          OE="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
@@ -78,7 +79,7 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <div class="p-4 border-0 shadow-sm card">
               <h2 class="mb-4 text-center fw-bold">Register</h2>
-              <form action="#" method="POST">
+              <form id="registerForm" class="needs-validation" novalidate>
                 <div class="mb-3">
                   <label for="name" class="form-label">Full Name</label>
                   <input
@@ -87,8 +88,12 @@
                     id="name"
                     name="name"
                     placeholder="Your Full Name"
+                    minlength="3"
                     required
                   />
+                  <div class="invalid-feedback">
+                    Name must be at least 3 characters long.
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
@@ -100,6 +105,9 @@
                     placeholder="Your Email"
                     required
                   />
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
@@ -109,8 +117,12 @@
                     id="password"
                     name="password"
                     placeholder="Your Password"
+                    minlength="6"
                     required
                   />
+                  <div class="invalid-feedback">
+                    Password must be at least 6 characters long.
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="confirmPassword" class="form-label"
@@ -124,6 +136,7 @@
                     placeholder="Confirm Password"
                     required
                   />
+                  <div class="invalid-feedback">Passwords do not match.</div>
                 </div>
                 <button
                   type="submit"
@@ -158,6 +171,78 @@
         duration: 1000,
         once: true,
       });
+
+      // Form validation
+      (function () {
+        "use strict";
+        const form = document.getElementById("registerForm");
+        const password = form.querySelector("#password");
+        const confirmPassword = form.querySelector("#confirmPassword");
+
+        form.addEventListener(
+          "submit",
+          function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (!form.checkValidity()) {
+              form.classList.add("was-validated");
+              return;
+            }
+
+            // Custom email validation
+            const email = form.querySelector("#email");
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value)) {
+              email.classList.add("is-invalid");
+              email.classList.remove("is-valid");
+              return;
+            } else {
+              email.classList.remove("is-invalid");
+              email.classList.add("is-valid");
+            }
+
+            // Password match validation
+            if (password.value !== confirmPassword.value) {
+              confirmPassword.classList.add("is-invalid");
+              confirmPassword.classList.remove("is-valid");
+              return;
+            } else {
+              confirmPassword.classList.remove("is-invalid");
+              confirmPassword.classList.add("is-valid");
+            }
+
+            // If valid, proceed with form submission (e.g., AJAX or redirect)
+            alert("Registration successful! (Demo)");
+            // form.submit(); // Uncomment to submit to backend
+          },
+          false
+        );
+
+        // Real-time validation
+        form.querySelectorAll("input").forEach((input) => {
+          input.addEventListener("input", function () {
+            if (input.checkValidity()) {
+              input.classList.remove("is-invalid");
+              input.classList.add("is-valid");
+            } else {
+              input.classList.add("is-invalid");
+              input.classList.remove("is-valid");
+            }
+
+            // Real-time password match check
+            if (input === confirmPassword || input === password) {
+              if (password.value === confirmPassword.value) {
+                confirmPassword.classList.remove("is-invalid");
+                confirmPassword.classList.add("is-valid");
+              } else {
+                confirmPassword.classList.add("is-invalid");
+                confirmPassword.classList.remove("is-valid");
+              }
+            }
+          });
+        });
+      })();
     </script>
   </body>
 </html>
