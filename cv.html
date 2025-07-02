@@ -1,251 +1,557 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="CV của Phạm Công Vĩnh - Thông tin cá nhân, học vấn, kinh nghiệm và kỹ năng."
-    />
-    <link
-      rel="shortcut icon"
-      href="./assets/images/logo.png"
-      type="image/x-icon"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      rel="stylesheet"
-    />
-    <title>Phạm Công Vinh | CV</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phạm Công Vinh | Full Stack Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    <!-- AOS CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-      rel="stylesheet"
-    />
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-    <link rel="stylesheet" href="./assets/css/cv.css" />
-  </head>
-  <body>
-    <div class="container p-5">
-      <!-- Navigation Buttons -->
-      <div class="mb-4 d-flex justify-content-between" data-aos="fade-down">
-        <a href="index.html" class="btn btn-outline-secondary rounded-pill">
-          <i class="fas fa-arrow-left me-2"></i>Quay lại
-        </a>
-        <a
-          href="./assets/CV.pdf"
-          class="btn btn-primary rounded-pill d-flex align-items-center justify-content-center"
-          download
-        >
-          Tải CV<i class="ms-2 fas fa-download me-2"></i>
-        </a>
-      </div>
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-      <!-- Header -->
-      <div class="header" data-aos="fade-down">
-        <h1>Phạm Công Vinh</h1>
-        <span>Web Developer</span>
-      </div>
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
 
-      <!-- Contact Information -->
-      <div
-        class="mb-3 contact-info d-none d-md-block mb-md-0"
-        data-aos="fade-down"
-      >
-        <p>
-          <a href="tel:+84352032375">📞 +84 912 345 678</a> |
-          <a href="mailto:vaniizit@gmail.com">✉️ vaniizit@gmail.com</a> |
-          <a href="https://www.facebook.com/i.padygamy1210">🌐 Facebook</a> |
-          <a href="https://github.com/Vinhdev04/">💻 GitHub</a> |
-          <a href="#">📍 Quận Thủ Đức, TP.HCM</a>
-        </p>
-      </div>
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
 
-      <!-- Objective -->
-      <div class="section section-objective" data-aos="fade-up">
-        <h2>MỤC TIÊU NGHỀ NGHIỆP</h2>
-        <p>
-          Tôi khao khát trở thành một Web Developer chuyên nghiệp, không ngừng
-          học hỏi và hoàn thiện kỹ năng để tạo ra những sản phẩm web sáng tạo,
-          hiệu quả và thân thiện với người dùng...
-        </p>
-      </div>
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
 
-      <!-- Education -->
-      <div class="section section-education" data-aos="fade-right">
-        <h2>HỌC VẤN</h2>
-        <ul>
-          <li class="d-flex g-2">
-            <span>Tên trường học:</span
-            ><span class="full">Đại học Công Nghệ TP.HCM</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Ngành học:</span><span class="full">Công nghệ thông tin</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Thời gian:</span><span class="full">2022 - 2026</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Điểm trung bình:</span><span class="highlight">8.0/10</span>
-          </li>
-        </ul>
-      </div>
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
 
-      <!-- Experience -->
-      <div class="section section-experience" data-aos="fade-left">
-        <h2>KINH NGHIỆM LÀM VIỆC</h2>
-        <ul>
-          <li class="d-flex g-2">
-            <span>Thực tập sinh:</span
-            ><span class="full">Công ty FPT Software</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Thời gian:</span><span class="full">06/2023 - 12/2023</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Mô tả công việc:</span
-            ><span class="full"
-              >Hỗ trợ phát triển web với HTML, CSS, JavaScript</span
-            >
-          </li>
-          <li class="d-flex g-2">
-            <span>Thực tập sinh:</span><span class="full">Công ty Zalo</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Thời gian:</span><span class="full">01/2023 - 05/2023</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Mô tả công việc:</span
-            ><span class="full"
-              >Tham gia dự án phát triển ứng dụng di động</span
-            >
-          </li>
-        </ul>
-      </div>
+        .header .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
 
-      <!-- Certificates -->
-      <div class="section section-certificates" data-aos="zoom-in">
-        <h2>CHỨNG CHỈ</h2>
-        <ul>
-          <li class="d-flex g-2">
-            <span>Tên chứng chỉ:</span
-            ><span class="full">Chứng chỉ lập trình web</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Thời gian:</span><span class="full">06/2022</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Tên chứng chỉ:</span
-            ><span class="full">Chứng chỉ JavaScript</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Thời gian:</span><span class="full">12/2021</span>
-          </li>
-        </ul>
-      </div>
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
 
-      <!-- Skills -->
-      <div class="section section-skills" data-aos="fade-up">
-        <h2>CÁC KỸ NĂNG</h2>
-        <ul>
-          <li class="d-flex g-2">
-            <span>Frontend Technologies:</span
-            ><span class="full">HTML, CSS, JavaScript, ReactJS</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>UI Technologies:</span
-            ><span class="full"
-              >Ant Design, MUI, Tailwind CSS, Bootstrap, Sass, Scss</span
-            >
-          </li>
-          <li class="d-flex g-2">
-            <span>Backend Technologies:</span
-            ><span class="full">ExpressJS, NodeJS, ThreeJS, MongoDB</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Design Technologies:</span
-            ><span class="full">Figma, Canva</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Other Technologies:</span
-            ><span class="full">Github, Git, Postman, Swagger,...</span>
-          </li>
-        </ul>
-      </div>
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-      <!-- Projects -->
-      <div class="section section-projects" data-aos="flip-up">
-        <h2>DỰ ÁN</h2>
-        <ul>
-          <!-- Project 1 -->
-          <li class="project-item">
-            <strong>WEBSITE E-COMMERCE 2023</strong>
-            <ul class="project-details">
-              <li>
-                • Cùng team phát triển nền tảng thương mại điện tử cho cửa hàng
-                bán lẻ.
-              </li>
-              <li>• Tính năng: giỏ hàng, thanh toán, quản lý đơn hàng.</li>
-              <li>• Công nghệ: ReactJS, NodeJS, MongoDB, Bootstrap.</li>
-              <li>
-                • Link:
-                <a href="https://github.com/Vinhdev04/ecommerce" target="_blank"
-                  >GitHub</a
-                >
-              </li>
-            </ul>
-          </li>
-          <!-- Project 2 -->
-          <li class="project-item">
-            <strong>ỨNG DỤNG QUẢN LÝ NHIỆM VỤ 2022</strong>
-            <ul class="project-details">
-              <li>• Quản lý công việc cá nhân với giao diện thân thiện.</li>
-              <li>• Công nghệ: VueJS, ExpressJS, Firebase.</li>
-              <li>
-                • Link:
-                <a
-                  href="https://github.com/Vinhdev04/task-manager"
-                  target="_blank"
-                  >GitHub</a
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+        .contact-item:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
 
-      <!-- Languages -->
-      <div class="section section-languages" data-aos="fade-up">
-        <h2>NGÔN NGỮ</h2>
-        <ul>
-          <li class="d-flex g-2">
-            <span>Tiếng Nhật:</span><span class="full">N5</span>
-          </li>
-          <li class="d-flex g-2">
-            <span>Tiếng Anh:</span
-            ><span class="full">B1, TOEIC 550, Đọc hiểu tài liệu</span>
-          </li>
-        </ul>
-      </div>
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .left-column, .right-column {
+            padding: 40px;
+        }
+
+        .left-column {
+            background: #f8f9fa;
+            border-right: 1px solid #e9ecef;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .skill-group {
+            margin-bottom: 25px;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .experience-item, .project-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .experience-item:hover, .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-title, .project-title {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .experience-company, .project-tech {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .experience-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-desc, .project-desc {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border: 2px solid #667eea;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .education-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-school {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .education-degree {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .education-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .education-gpa {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .languages {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .language-level {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="download-btn">
+        <i class="fas fa-download"></i>
+        Tải CV
+    </a>
+
+    <div class="container">
+        <div class="header">
+            <div class="profile-img">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>Phạm Công Vinh</h1>
+            <div class="title">Full Stack Developer</div>
+            <div class="contact-info">
+                <a href="tel:+84912345678" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    +84 912 345 678
+                </a>
+                <a href="mailto:vaniizit@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    vaniizit@gmail.com
+                </a>
+                <a href="https://github.com/Vinhdev04/" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.facebook.com/i.padygamy1210" class="contact-item">
+                    <i class="fab fa-facebook"></i>
+                    Facebook
+                </a>
+                <a href="#" class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Quận Thủ Đức, TP.HCM
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="section">
+                    <h2><i class="fas fa-code"></i> Kỹ năng công nghệ</h2>
+                    <div class="skill-group">
+                        <div class="skill-category">Frontend</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">ReactJS</span>
+                            <span class="skill-tag">TypeScript</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-category">UI/UX Frameworks</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">Ant Design</span>
+                            <span class="skill-tag">Material-UI</span>
+                            <span class="skill-tag">Sass/Scss</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-category">Backend</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">RESTful API</span>
+                            <span class="skill-tag">Three.js</span>
+                        </div>
+                    </div>
+                    <div class="skill-group">
+                        <div class="skill-category">Tools & Design</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">Swagger</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-graduation-cap"></i> Học vấn</h2>
+                    <div class="education-item">
+                        <div class="education-school">Đại học Công Nghệ TP.HCM</div>
+                        <div class="education-degree">Công nghệ thông tin</div>
+                        <div class="education-date">2022 - 2026</div>
+                        <div class="education-gpa">GPA: 8.0/10</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-language"></i> Ngôn ngữ</h2>
+                    <div class="languages">
+                        <div class="language-item">
+                            <div class="language-name">Tiếng Anh</div>
+                            <div class="language-level">B1 - TOEIC 550</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">Tiếng Nhật</div>
+                            <div class="language-level">N5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h2><i class="fas fa-target"></i> Mục tiêu nghề nghiệp</h2>
+                    <div style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); line-height: 1.7; color: #555;">
+                        Khao khát trở thành một Full Stack Developer chuyên nghiệp, không ngừng học hỏi và hoàn thiện kỹ năng để tạo ra những sản phẩm web sáng tạo, hiệu quả và thân thiện với người dùng. Mong muốn được làm việc trong môi trường năng động, góp phần xây dựng các giải pháp công nghệ hiện đại.
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-briefcase"></i> Kinh nghiệm làm việc</h2>
+                    <div class="experience-item">
+                        <div class="experience-title">Thực tập sinh Web Developer</div>
+                        <div class="experience-company">FPT Software</div>
+                        <div class="experience-date">06/2023 - 12/2023</div>
+                        <div class="experience-desc">
+                            Hỗ trợ phát triển các ứng dụng web sử dụng HTML, CSS, JavaScript và các framework hiện đại. Tham gia vào quy trình phát triển phần mềm, học hỏi về clean code và best practices.
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-title">Thực tập sinh Mobile Developer</div>
+                        <div class="experience-company">Zalo (VNG Corporation)</div>
+                        <div class="experience-date">01/2023 - 05/2023</div>
+                        <div class="experience-desc">
+                            Tham gia dự án phát triển ứng dụng di động, học hỏi về UI/UX design và mobile development. Được tiếp cận với các công nghệ mới và quy trình làm việc chuyên nghiệp.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2><i class="fas fa-project-diagram"></i> Dự án nổi bật</h2>
+                    <div class="project-item">
+                        <div class="project-title">E-Commerce Platform</div>
+                        <div class="project-tech">ReactJS • Node.js • MongoDB • Bootstrap</div>
+                        <div class="project-desc">
+                            Phát triển nền tảng thương mại điện tử hoàn chỉnh với các tính năng: giỏ hàng thông minh, hệ thống thanh toán an toàn, quản lý đơn hàng và dashboard admin. Sử dụng kiến trúc RESTful API và responsive design.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Vinhdev04/ecommerce" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">Task Management App</div>
+                        <div class="project-tech">Vue.js • Express.js • Firebase</div>
+                        <div class="project-desc">
+                            Ứng dụng quản lý nhiệm vụ cá nhân với giao diện hiện đại, tính năng drag-and-drop, notification system và sync data real-time. Tích hợp authentication và cloud storage.
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Vinhdev04/task-manager" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- AOS JS -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
+        // Add smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill tags on scroll
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Add floating animation to profile image
+            const profileImg = document.querySelector('.profile-img');
+            if (profileImg) {
+                setInterval(() => {
+                    profileImg.style.transform = `translateY(${Math.sin(Date.now() * 0.001) * 3}px)`;
+                }, 16);
+            }
+        });
     </script>
-  </body>
+</body>
 </html>
