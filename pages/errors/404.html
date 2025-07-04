@@ -1,85 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>404 - Page Not Found</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Trang Không Tồn Tại</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Open+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../assets/css/404.css" />
+    <link rel="stylesheet" href="/assets/css/404.css" />
   </head>
   <body>
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
     <button class="dark-mode-toggle" aria-label="Toggle dark mode">
       <i class="fas fa-moon"></i>
     </button>
 
-    <div class="error-container" data-aos="fade-up">
-      <i
-        class="fas fa-search error-icon"
-        data-aos="zoom-in"
-        data-aos-delay="200"
-      ></i>
-      <div class="error-code" data-aos="zoom-in" data-aos-delay="200">404</div>
-      <h2 class="error-message" data-aos="fade-right" data-aos-delay="400">
-        Oops! Trang bạn tìm không tồn tại.
-      </h2>
-      <p
-        class="mb-4 text-muted error-description"
-        data-aos="fade-left"
-        data-aos-delay="600"
-      >
-        Có thể đường dẫn đã sai hoặc trang đã bị xoá. Hãy thử quay lại trang chủ
-        hoặc liên hệ hỗ trợ.
+    <div class="error-container">
+      <i class="fas fa-search error-icon"></i>
+      <div class="error-code">404</div>
+      <h2 class="error-message">Oops! Trang bạn tìm không tồn tại</h2>
+      <p class="error-description">
+        Có thể đường dẫn đã sai hoặc trang đã bị xoá. Đừng lo lắng, hãy thử quay
+        lại trang chủ hoặc liên hệ với chúng tôi để được hỗ trợ.
       </p>
-      <div>
-        <a
-          href="/"
-          class="btn btn-primary btn-home"
-          data-aos="zoom-in"
-          data-aos-delay="800"
-        >
-          Quay về trang chủ
+      <div class="btn-container">
+        <a href="/" class="btn btn-primary">
+          <i class="fas fa-home"></i> Quay về trang chủ
         </a>
-        <a
-          href="../../index.html"
-          class="btn btn-outline-secondary btn-contact"
-          data-aos="zoom-in"
-          data-aos-delay="1000"
-        >
-          Liên hệ hỗ trợ
+        <a href="/contact" class="btn btn-outline">
+          <i class="fas fa-envelope"></i> Liên hệ hỗ trợ
         </a>
       </div>
     </div>
 
-    <!-- Bootstrap JS + AOS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 800,
-        once: true,
-      });
-
-      // Dark Mode Toggle
-      const toggleButton = document.querySelector(".dark-mode-toggle");
-      const body = document.body;
-      toggleButton.addEventListener("click", () => {
-        body.classList.toggle("dark-mode");
-        toggleButton.innerHTML = body.classList.contains("dark-mode")
-          ? '<i class="fas fa-sun"></i>'
-          : '<i class="fas fa-moon"></i>';
-      });
-    </script>
+    <script src="/assets/js/index.js"></script>
   </body>
 </html>

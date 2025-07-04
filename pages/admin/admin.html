@@ -1,109 +1,986 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Dashboard</title>
+    <title>Admin Dashboard - Portfolio Management</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../assets/css/admin.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f8fafc;
+        color: #334155;
+      }
+
+      .admin-container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 280px;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        color: white;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+        position: fixed;
+        height: 100vh;
+        overflow-y: auto;
+        z-index: 1000;
+      }
+
+      .sidebar.collapsed {
+        width: 80px;
+      }
+
+      .sidebar-header {
+        padding: 0 20px 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .sidebar-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        float: right;
+        padding: 10px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .sidebar-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .sidebar-logo {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .sidebar-subtitle {
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      .sidebar-nav {
+        padding: 20px 0;
+      }
+
+      .nav-item {
+        margin-bottom: 8px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 0 25px 25px 0;
+        margin-right: 20px;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
+
+      .nav-link i {
+        width: 20px;
+        margin-right: 15px;
+        text-align: center;
+      }
+
+      .sidebar.collapsed .nav-link span {
+        display: none;
+      }
+
+      .sidebar.collapsed .nav-link {
+        margin-right: 0;
+        border-radius: 0;
+        justify-content: center;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex: 1;
+        margin-left: 280px;
+        transition: all 0.3s ease;
+      }
+
+      .main-content.expanded {
+        margin-left: 80px;
+      }
+
+      .top-bar {
+        background: white;
+        padding: 20px 30px;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .page-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+      }
+
+      .content-area {
+        padding: 30px;
+      }
+
+      /* Stats Cards */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .stat-card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .stat-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .stat-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+      }
+
+      .stat-value {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 5px;
+      }
+
+      .stat-change {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .stat-change.positive {
+        color: #10b981;
+      }
+
+      .stat-change.negative {
+        color: #ef4444;
+      }
+
+      /* Content Sections */
+      .content-section {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+        margin-bottom: 30px;
+      }
+
+      .section-header {
+        padding: 25px 30px;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .section-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1e293b;
+      }
+
+      .section-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+      }
+
+      .btn-secondary {
+        background: #f1f5f9;
+        color: #475569;
+      }
+
+      .btn-secondary:hover {
+        background: #e2e8f0;
+      }
+
+      .btn-danger {
+        background: #ef4444;
+        color: white;
+      }
+
+      .btn-danger:hover {
+        background: #dc2626;
+      }
+
+      /* Table */
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .data-table th,
+      .data-table td {
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .data-table th {
+        background: #f8fafc;
+        font-weight: 600;
+        color: #475569;
+        font-size: 14px;
+      }
+
+      .data-table tr:hover {
+        background: #f8fafc;
+      }
+
+      .table-actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .action-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .action-btn.edit {
+        background: #f59e0b;
+        color: white;
+      }
+
+      .action-btn.delete {
+        background: #ef4444;
+        color: white;
+      }
+
+      .action-btn:hover {
+        transform: scale(1.05);
+      }
+
+      /* Status badges */
+      .status-badge {
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .status-active {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .status-inactive {
+        background: #fef2f2;
+        color: #991b1b;
+      }
+
+      .status-draft {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .status-published {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+
+      /* Form Styles */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #374151;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: slideIn 0.3s ease;
+      }
+
+      .modal-header {
+        padding: 25px 30px;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1e293b;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #6b7280;
+      }
+
+      .modal-body {
+        padding: 30px;
+      }
+
+      .modal-footer {
+        padding: 20px 30px;
+        border-top: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -60%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 80px;
+        }
+
+        .sidebar.collapsed {
+          width: 60px;
+        }
+
+        .main-content {
+          margin-left: 80px;
+        }
+
+        .main-content.expanded {
+          margin-left: 60px;
+        }
+
+        .top-bar {
+          padding: 15px 20px;
+        }
+
+        .page-title {
+          font-size: 24px;
+        }
+
+        .content-area {
+          padding: 20px;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .data-table {
+          font-size: 14px;
+        }
+
+        .data-table th,
+        .data-table td {
+          padding: 10px 15px;
+        }
+      }
+
+      /* Hide content sections by default */
+      .content-section {
+        display: none;
+      }
+
+      .content-section.active {
+        display: block;
+      }
+
+      /* Dashboard is active by default */
+      .dashboard-section {
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row vh-100">
-        <aside class="col-auto sidebar d-flex flex-column">
-          <h2>🧿</h2>
-          <nav class="flex-grow-1">
-            <ul>
-              <li>
-                <a href="../clients/home.html" class="nav-link active">Home</a>
-              </li>
-              <li>
-                <a href="../clients/products.html" class="nav-link">Products</a>
-              </li>
-              <li><a href="../clients/user.html" class="nav-link">Users</a></li>
-              <li>
-                <a href="../clients/project.html" class="nav-link">Projects</a>
-              </li>
-              <li>
-                <a href="../clients/notifications.html" class="nav-link"
-                  >Notifications</a
-                >
-              </li>
-            </ul>
-          </nav>
-          <div class="user">
-            <img
-              src="../../assets/images/avt.jpg"
-              alt="User"
-              class=""
-              width="45px"
-              height="45px"
-              style="border-radius: 50%; object-fit: cover"
-            />
-            <span>Administrator</span>
+    <div class="admin-container">
+      <!-- Sidebar -->
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <button class="sidebar-toggle" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="sidebar-logo">Portfolio Admin</div>
+          <div class="sidebar-subtitle">Quản lý nội dung</div>
+        </div>
+        <nav class="sidebar-nav">
+          <div class="nav-item">
+            <a
+              href="#"
+              class="nav-link active"
+              onclick="showSection('dashboard')"
+            >
+              <i class="fas fa-chart-pie"></i>
+              <span>Dashboard</span>
+            </a>
           </div>
-        </aside>
+          <div class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('blogs')">
+              <i class="fas fa-blog"></i>
+              <span>Quản lý Blog</span>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('projects')">
+              <i class="fas fa-project-diagram"></i>
+              <span>Quản lý Project</span>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('users')">
+              <i class="fas fa-users"></i>
+              <span>Quản lý User</span>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('settings')">
+              <i class="fas fa-cog"></i>
+              <span>Cài đặt</span>
+            </a>
+          </div>
+        </nav>
+      </div>
 
-        <main class="col main-content">
-          <header class="header">
-            <h1>Products</h1>
-            <input type="text" placeholder="Search..." />
-            <button class="add-btn">Add Product</button>
-            <button class="filter-btn">Filter</button>
-            <button id="toggle-dark">🌙</button>
-          </header>
+      <!-- Main Content -->
+      <div class="main-content" id="mainContent">
+        <!-- Top Bar -->
+        <div class="top-bar">
+          <h1 class="page-title" id="pageTitle">Dashboard</h1>
+          <div class="user-info">
+            <div class="user-avatar">AD</div>
+            <span>Admin User</span>
+          </div>
+        </div>
 
-          <section class="table-section">
-            <table>
+        <!-- Content Area -->
+        <div class="content-area">
+          <!-- Dashboard Section -->
+          <div class="content-section dashboard-section active" id="dashboard">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-title">Tổng Blog Posts</div>
+                  <div
+                    class="stat-icon"
+                    style="
+                      background: linear-gradient(135deg, #667eea, #764ba2);
+                    "
+                  >
+                    <i class="fas fa-blog"></i>
+                  </div>
+                </div>
+                <div class="stat-value">24</div>
+                <div class="stat-change positive">+12% từ tháng trước</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-title">Tổng Projects</div>
+                  <div
+                    class="stat-icon"
+                    style="
+                      background: linear-gradient(135deg, #10b981, #059669);
+                    "
+                  >
+                    <i class="fas fa-project-diagram"></i>
+                  </div>
+                </div>
+                <div class="stat-value">12</div>
+                <div class="stat-change positive">+2 dự án mới</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-title">Tổng Users</div>
+                  <div
+                    class="stat-icon"
+                    style="
+                      background: linear-gradient(135deg, #f59e0b, #d97706);
+                    "
+                  >
+                    <i class="fas fa-users"></i>
+                  </div>
+                </div>
+                <div class="stat-value">1,234</div>
+                <div class="stat-change positive">+5.2% tăng trưởng</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-header">
+                  <div class="stat-title">Lượt xem tháng</div>
+                  <div
+                    class="stat-icon"
+                    style="
+                      background: linear-gradient(135deg, #ef4444, #dc2626);
+                    "
+                  >
+                    <i class="fas fa-eye"></i>
+                  </div>
+                </div>
+                <div class="stat-value">45.2K</div>
+                <div class="stat-change negative">-2.1% so với tháng trước</div>
+              </div>
+            </div>
+
+            <div class="content-section">
+              <div class="section-header">
+                <h2 class="section-title">Hoạt động gần đây</h2>
+              </div>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Thời gian</th>
+                    <th>Hoạt động</th>
+                    <th>Người thực hiện</th>
+                    <th>Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2 phút trước</td>
+                    <td>Tạo blog post mới "React Best Practices"</td>
+                    <td>Admin User</td>
+                    <td>
+                      <span class="status-badge status-published">Đã đăng</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>15 phút trước</td>
+                    <td>Cập nhật project "E-commerce App"</td>
+                    <td>Admin User</td>
+                    <td>
+                      <span class="status-badge status-active">Hoạt động</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>1 giờ trước</td>
+                    <td>Xóa user "spam_user_123"</td>
+                    <td>Admin User</td>
+                    <td>
+                      <span class="status-badge status-inactive">Đã xóa</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Blog Management Section -->
+          <div class="content-section" id="blogs">
+            <div class="section-header">
+              <h2 class="section-title">Quản lý Blog Posts</h2>
+              <div class="section-actions">
+                <button class="btn btn-primary" onclick="openModal('addBlog')">
+                  <i class="fas fa-plus"></i> Thêm Blog
+                </button>
+              </div>
+            </div>
+            <table class="data-table">
               <thead>
                 <tr>
-                  <th>Item</th>
-                  <th>Category</th>
-                  <th>Status</th>
-                  <th>Sales</th>
-                  <th>Stock</th>
-                  <th>Price</th>
+                  <th>Tiêu đề</th>
+                  <th>Tác giả</th>
+                  <th>Ngày tạo</th>
+                  <th>Trạng thái</th>
+                  <th>Lượt xem</th>
+                  <th>Thao tác</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="blogsTableBody">
                 <tr>
-                  <td><img src="https://via.placeholder.com/30" /> Ocean</td>
-                  <td>Furniture</td>
-                  <td><span class="status active">Active</span></td>
-                  <td>11</td>
-                  <td>36</td>
-                  <td>$560</td>
+                  <td>React Hooks: A Complete Guide</td>
+                  <td>Admin User</td>
+                  <td>15/12/2024</td>
+                  <td>
+                    <span class="status-badge status-published">Đã đăng</span>
+                  </td>
+                  <td>1,234</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="action-btn edit" onclick="editBlog(1)">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="action-btn delete" onclick="deleteBlog(1)">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
-                  <td><img src="https://via.placeholder.com/30" /> Lou</td>
-                  <td>Kitchen</td>
-                  <td><span class="status disabled">Disabled</span></td>
-                  <td>6</td>
-                  <td>46</td>
-                  <td>$710</td>
+                  <td>JavaScript ES6 Features</td>
+                  <td>Admin User</td>
+                  <td>10/12/2024</td>
+                  <td>
+                    <span class="status-badge status-draft">Bản nháp</span>
+                  </td>
+                  <td>0</td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="action-btn edit" onclick="editBlog(2)">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="action-btn delete" onclick="deleteBlog(2)">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
+          </div>
 
-            <div class="mt-3 pagination-controls">
-              <button class="btn btn-secondary">Previous</button>
-              <span class="px-3">Page 1 of 3</span>
-              <button class="btn btn-secondary">Next</button>
+          <!-- Project Management Section -->
+          <div class="content-section" id="projects">
+            <div class="section-header">
+              <h2 class="section-title">Quản lý Projects</h2>
+              <div class="section-actions">
+                <button
+                  class="btn btn-primary"
+                  onclick="openModal('addProject')"
+                >
+                  <i class="fas fa-plus"></i> Thêm Project
+                </button>
+              </div>
             </div>
-          </section>
-        </main>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Tên Project</th>
+                  <th>Công nghệ</th>
+                  <th>Ngày tạo</th>
+                  <th>Trạng thái</th>
+                  <th>GitHub</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="projectsTableBody">
+                <tr>
+                  <td>E-Commerce Website</td>
+                  <td>React, Node.js, MongoDB</td>
+                  <td>01/12/2024</td>
+                  <td>
+                    <span class="status-badge status-active">Hoàn thành</span>
+                  </td>
+                  <td><a href="#" class="btn btn-secondary">GitHub</a></td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="action-btn edit" onclick="editProject(1)">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button
+                        class="action-btn delete"
+                        onclick="deleteProject(1)"
+                      >
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Task Management App</td>
+                  <td>Vue.js, Firebase</td>
+                  <td>15/11/2024</td>
+                  <td>
+                    <span class="status-badge status-draft"
+                      >Đang phát triển</span
+                    >
+                  </td>
+                  <td><a href="#" class="btn btn-secondary">GitHub</a></td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="action-btn edit" onclick="editProject(2)">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button
+                        class="action-btn delete"
+                        onclick="deleteProject(2)"
+                      >
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- User Management Section -->
+          <div class="content-section" id="users">
+            <div class="section-header">
+              <h2 class="section-title">Quản lý Users</h2>
+              <div class="section-actions">
+                <button class="btn btn-primary" onclick="openModal('addUser')">
+                  <i class="fas fa-plus"></i> Thêm User
+                </button>
+              </div>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Tên</th>
+                  <th>Email</th>
+                  <th>Vai trò</th>
+                  <th>Ngày tham gia</th>
+                  <th>Trạng thái</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody">
+                <tr>
+                  <td>Admin User</td>
+                  <td>admin@example.com</td>
+                  <td><span class="status-badge status-active">Admin</span></td>
+                  <td>01/01/2024</td>
+                  <td>
+                    <span class="status-badge status-active">Hoạt động</span>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="action-btn edit" onclick="editUser(1)">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="action-btn delete" onclick="deleteUser(1)">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>John Doe</td>
+                  <td>john@example.com</td>
+                  <td>
+                    <span class="status-badge status-published">User</span>
+                  </td>
+                  <td>15/11/2024</td>
+                  <td>
+                    <span class="status-badge status-inactive">Tạm khóa</span>
+                  </td>
+                  <td>
+                    <div class="table-actions">
+                      <button class="action-btn edit" onclick="editUser(2)">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button class="action-btn delete" onclick="deleteUser(2)">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Settings Section -->
+          <div class="content-section" id="settings">
+            <div class="section-header">
+              <h2 class="section-title">Cài đặt Website</h2>
+            </div>
+            <div style="padding: 30px">
+              <div class="form-group">
+                <label class="form-label">Tên Website</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="My Portfolio"
+                  placeholder="Nhập tên website"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Mô tả Website</label>
+                <textarea class="form-control" placeholder="Nhập mô tả website">
+Website portfolio cá nhân để showcase các dự án và blog posts.</textarea
+                >
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email liên hệ</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  value="contact@example.com"
+                  placeholder="Nhập email liên hệ"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Số điện thoại</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  value="+84 123 456 789"
+                  placeholder="Nhập số điện thoại"
+                />
+              </div>
+              <button class="btn btn-primary">
+                <i class="fas fa-save"></i> Lưu cài đặt
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <script>
-      document.getElementById("toggle-dark").addEventListener("click", () => {
-        document.body.classList.toggle("light");
-      });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

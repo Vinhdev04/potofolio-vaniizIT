@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dự Án Của Tôi - Projects Portfolio</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        padding: 80px 0 60px;
+        color: white;
+      }
+
+      .header h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        padding: 40px 0;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 30px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        animation: cardSlideIn 0.8s ease-out;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .project-card:hover::before {
+        left: 100%;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes cardSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .project-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border-radius: 15px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-image::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover .project-image::after {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .project-info {
+        color: white;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .project-description {
+        font-size: 0.95rem;
+        opacity: 0.9;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .tech-tag {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        color: white;
+      }
+
+      .project-buttons {
+        display: flex;
+        gap: 15px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 25px;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        transform: translate(-50%, -50%);
+      }
+
+      .btn:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        animation: modalFadeIn 0.3s ease-out;
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 80vh;
+        overflow: hidden;
+        animation: modalSlideIn 0.3s ease-out;
+      }
+
+      @keyframes modalSlideIn {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -60%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .modal-header {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: 20px 30px;
+        position: relative;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .modal-close:hover {
+        transform: scale(1.2);
+      }
+
+      .modal-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .modal-subtitle {
+        opacity: 0.9;
+        font-size: 1rem;
+      }
+
+      .modal-body {
+        padding: 0;
+        max-height: 50vh;
+        overflow-y: auto;
+      }
+
+      /* Slider */
+      .slider-container {
+        position: relative;
+      }
+
+      .slider {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .slide {
+        min-width: 100%;
+        padding: 30px;
+        background: #f8f9fa;
+      }
+
+      .slide-image {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        border-radius: 15px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: white;
+      }
+
+      .slide-content h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .slide-content p {
+        line-height: 1.6;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .slide-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .slide-time {
+        background: #e9ecef;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: #495057;
+      }
+
+      .slide-demo {
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .slide-demo:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+      }
+
+      .slider-nav {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+      }
+
+      .nav-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .nav-dot.active {
+        background: #667eea;
+        transform: scale(1.2);
+      }
+
+      .slider-arrows {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slider-arrows:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .slider-prev {
+        left: 20px;
+      }
+
+      .slider-next {
+        right: 20px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 2.5rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .project-card {
+          padding: 20px;
+        }
+
+        .project-buttons {
+          flex-direction: column;
+        }
+
+        .modal-content {
+          width: 95%;
+          max-height: 90vh;
+        }
+
+        .modal-header {
+          padding: 15px 20px;
+        }
+
+        .slide {
+          padding: 20px;
+        }
+
+        .slide-image {
+          height: 200px;
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Dự Án Của Tôi</h1>
+        <p>Khám phá các dự án tôi đã thực hiện với đam mê và sự sáng tạo</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">E-Commerce Website</h3>
+            <p class="project-description">
+              Website thương mại điện tử hoàn chỉnh với giỏ hàng, thanh toán
+              online và quản lý sản phẩm.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Stripe</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-primary" onclick="openModal('project1')">
+                <i class="fas fa-eye"></i> Xem Chi Tiết
+              </button>
+              <a
+                href="https://github.com/example/ecommerce"
+                class="btn btn-secondary"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Task Management App</h3>
+            <p class="project-description">
+              Ứng dụng quản lý công việc với tính năng kéo thả, thông báo
+              realtime và làm việc nhóm.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Vuetify</span>
+              <span class="tech-tag">PWA</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-primary" onclick="openModal('project2')">
+                <i class="fas fa-eye"></i> Xem Chi Tiết
+              </button>
+              <a
+                href="https://github.com/example/taskmanager"
+                class="btn btn-secondary"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Analytics Dashboard</h3>
+            <p class="project-description">
+              Dashboard phân tích dữ liệu với biểu đồ tương tác, báo cáo tự động
+              và xuất file.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Angular</span>
+              <span class="tech-tag">D3.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-primary" onclick="openModal('project3')">
+                <i class="fas fa-eye"></i> Xem Chi Tiết
+              </button>
+              <a
+                href="https://github.com/example/analytics"
+                class="btn btn-secondary"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Mobile Dating App</h3>
+            <p class="project-description">
+              Ứng dụng hẹn hò với tính năng swipe, chat realtime, video call và
+              matching algorithm.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">Socket.io</span>
+              <span class="tech-tag">Redis</span>
+              <span class="tech-tag">AWS</span>
+            </div>
+            <div class="project-buttons">
+              <button class="btn btn-primary" onclick="openModal('project4')">
+                <i class="fas fa-eye"></i> Xem Chi Tiết
+              </button>
+              <a
+                href="https://github.com/example/dating-app"
+                class="btn btn-secondary"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modalTitle">Chi Tiết Dự Án</h2>
+          <p class="modal-subtitle" id="modalSubtitle">
+            Khám phá thêm về dự án này
+          </p>
+          <button class="modal-close" onclick="closeModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="slider-container">
+            <div class="slider" id="modalSlider">
+              <!-- Slides will be inserted here -->
+            </div>
+            <button class="slider-arrows slider-prev" onclick="prevSlide()">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-arrows slider-next" onclick="nextSlide()">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="slider-nav" id="sliderNav">
+              <!-- Navigation dots will be inserted here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Project data
+      const projects = {
+        project1: {
+          title: "Mancity Blog Website",
+          subtitle: "Nền tảng thương mại điện tử hiện đại",
+          slides: [
+            {
+              title: "Trang Chủ & Danh Mục",
+              description:
+                "Thiết kế hiện đại với carousel banner, danh mục sản phẩm và tìm kiếm thông minh. Responsive design hoàn hảo trên mọi thiết bị.",
+              time: "Tháng 1 - 2024",
+              demo: "https://man-city-web-navy.vercel.app/",
+              icon: "fas fa-home",
+            },
+            {
+              title: "Giỏ Hàng & Thanh Toán",
+              description:
+                "Hệ thống giỏ hàng với tính năng cập nhật realtime, múi giờ địa phương và tích hợp Stripe Payment Gateway an toàn.",
+              time: "Tháng 2 - 2024",
+              demo: "https://demo-ecommerce.com/cart",
+              icon: "fas fa-shopping-cart",
+            },
+            {
+              title: "Quản Lý Admin",
+              description:
+                "Dashboard quản trị với thống kê doanh thu, quản lý sản phẩm, đơn hàng và khách hàng. Báo cáo chi tiết và export dữ liệu.",
+              time: "Tháng 3 - 2024",
+              demo: "https://demo-ecommerce.com/admin",
+              icon: "fas fa-chart-bar",
+            },
+          ],
+        },
+        project2: {
+          title: "Ecommerce Fashion",
+          subtitle: "Ứng dụng quản lý công việc thông minh",
+          slides: [
+            {
+              title: "Kanban Board",
+              description:
+                "Bảng Kanban với tính năng drag & drop, tạo task nhanh, gán thành viên và theo dõi tiến độ realtime.",
+              time: "Tháng 4 - 2024",
+              demo: "https://ecommerce-fashion-seven.vercel.app/",
+              icon: "fas fa-columns",
+            },
+            {
+              title: "Chat & Collaboration",
+              description:
+                "Hệ thống chat tích hợp trong từng task, chia sẻ file, mention thành viên và thông báo push notification.",
+              time: "Tháng 5 - 2024",
+              demo: "https://demo-taskapp.com/chat",
+              icon: "fas fa-comments",
+            },
+            {
+              title: "Timeline & Reports",
+              description:
+                "Lịch sử công việc, báo cáo tiến độ dự án, thống kê hiệu suất và export báo cáo PDF.",
+              time: "Tháng 6 - 2024",
+              demo: "https://demo-taskapp.com/reports",
+              icon: "fas fa-clock",
+            },
+          ],
+        },
+        project3: {
+          title: "Trình tạo mã QR tự động",
+          subtitle: "Bảng điều khiển phân tích dữ liệu",
+          slides: [
+            {
+              title: "Real-time Charts",
+              description:
+                "Biểu đồ tương tác với D3.js, cập nhật dữ liệu realtime, zoom, filter và multiple chart types.",
+              time: "Tháng 7 - 2024",
+              demo: "https://create-qr-chi.vercel.app/",
+              icon: "fas fa-chart-line",
+            },
+            {
+              title: "Data Visualization",
+              description:
+                "Heatmap, treemap, scatter plot với khả năng customize màu sắc, legend và tooltip chi tiết.",
+              time: "Tháng 8 - 2024",
+              demo: "https://demo-analytics.com/visualization",
+              icon: "fas fa-chart-area",
+            },
+            {
+              title: "Report Generator",
+              description:
+                "Tạo báo cáo tự động theo template, lên lịch gửi email, export PDF/Excel và dashboard sharing.",
+              time: "Tháng 9 - 2024",
+              demo: "https://demo-analytics.com/reports",
+              icon: "fas fa-file-pdf",
+            },
+          ],
+        },
+        project4: {
+          title: "Password Generator",
+          subtitle: "Ứng dụng hẹn hò trên mobile",
+          slides: [
+            {
+              title: "Swipe & Match",
+              description:
+                "Tính năng swipe mượt mà với animation, matching algorithm thông minh dựa trên sở thích và vị trí.",
+              time: "Tháng 10 - 2024",
+              demo: "https://generatepassword-henna.vercel.app/",
+              icon: "fas fa-heart",
+            },
+            {
+              title: "Chat & Video Call",
+              description:
+                "Chat realtime với emoji, sticker, gửi ảnh và tính năng video call HD với WebRTC.",
+              time: "Tháng 11 - 2024",
+              demo: "https://demo-dating.com/chat",
+              icon: "fas fa-video",
+            },
+            {
+              title: "Profile & Discovery",
+              description:
+                "Profile tùy chỉnh với ảnh, sở thích, ghép đôi theo vị trí GPS và bộ lọc tìm kiếm chi tiết.",
+              time: "Tháng 12 - 2024",
+              demo: "https://demo-dating.com/profile",
+              icon: "fas fa-user-circle",
+            },
+          ],
+        },
+      };
+
+      let currentSlide = 0;
+      let currentProject = null;
+
+      function openModal(projectId) {
+        currentProject = projects[projectId];
+        currentSlide = 0;
+
+        document.getElementById("modalTitle").textContent =
+          currentProject.title;
+        document.getElementById("modalSubtitle").textContent =
+          currentProject.subtitle;
+
+        renderSlides();
+        renderNavigation();
+
+        document.getElementById("projectModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        document.getElementById("projectModal").style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      function renderSlides() {
+        const slider = document.getElementById("modalSlider");
+        slider.innerHTML = "";
+
+        currentProject.slides.forEach((slide, index) => {
+          const slideElement = document.createElement("div");
+          slideElement.className = "slide";
+          slideElement.innerHTML = `
+                    <div class="slide-image">
+                        <i class="${slide.icon}"></i>
+                    </div>
+                    <div class="slide-content">
+                        <h3>${slide.title}</h3>
+                        <p>${slide.description}</p>
+                        <div class="slide-meta">
+                            <span class="slide-time">
+                                <i class="fas fa-calendar"></i> ${slide.time}
+                            </span>
+                            <a href="${slide.demo}" class="slide-demo" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Xem Demo
+                            </a>
+                        </div>
+                    </div>
+                `;
+          slider.appendChild(slideElement);
+        });
+
+        updateSliderPosition();
+      }
+
+      function renderNavigation() {
+        const nav = document.getElementById("sliderNav");
+        nav.innerHTML = "";
+
+        currentProject.slides.forEach((_, index) => {
+          const dot = document.createElement("div");
+          dot.className = `nav-dot ${index === currentSlide ? "active" : ""}`;
+          dot.addEventListener("click", () => goToSlide(index));
+          nav.appendChild(dot);
+        });
+      }
+
+      function updateSliderPosition() {
+        const slider = document.getElementById("modalSlider");
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+        // Update navigation dots
+        const dots = document.querySelectorAll(".nav-dot");
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentSlide);
+        });
+      }
+
+      function nextSlide() {
+        if (currentSlide < currentProject.slides.length - 1) {
+          currentSlide++;
+          updateSliderPosition();
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide > 0) {
+          currentSlide--;
+          updateSliderPosition();
+        }
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        updateSliderPosition();
+      }
+
+      // Close modal when clicking outside
+      window.addEventListener("click", (e) => {
+        const modal = document.getElementById("projectModal");
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (document.getElementById("projectModal").style.display === "block") {
+          if (e.key === "Escape") {
+            closeModal();
+          } else if (e.key === "ArrowLeft") {
+            prevSlide();
+          } else if (e.key === "ArrowRight") {
+            nextSlide();
+          }
+        }
+      });
+
+      // Add staggered animation to project cards
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.animationDelay = `${index * 0.2}s`;
+              entry.target.classList.add("animate-in");
+            }, index * 100);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".project-card").forEach((card) => {
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>
